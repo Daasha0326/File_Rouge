@@ -1,0 +1,59 @@
+<nav class="flex justify-between px-20 py-10 items-center bg-white">
+    <img src="https://i0.wp.com/infoetudes.com/wp-content/uploads/2017/09/sonatel-academy.jpg?fit=890%2C342&ssl=1"
+        alt="" srcset="" class="w-64">
+    <div class="flex items-center">
+    <!-- navbar pour professeur -->
+        <ul *ngIf="userConnected.role == 'Professeur'" class="flex items-center space-x-6">
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="">Home</a></li>
+            <li>
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="/planSession">Planification Sessions</a></li>
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="/login">Deconnexion</a></li>
+            <li>
+        </ul>
+        <!-- nabar pour rp -->
+        <ul *ngIf="userConnected.role == 'Responsable Pedagogique'"  class="flex items-center space-x-6">
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="">Home</a></li>
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="/classe">Liste des classes</a></li>
+            <li>
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="/planSession">Planification Sessions</a></li>
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;">
+                <a routerLink="/planning">
+                    Liste Cours
+                </a>
+            </li>
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;">
+                <a routerLink="cours">
+                    Cours
+                </a>
+            </li>
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;">
+                <a routerLink="/plancours">
+                   Sessions
+                </a>
+            </li>
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="/login">Deconnexion</a></li>
+            <li>
+        </ul>
+         <!-- nabar pour aattach -->
+         <ul *ngIf="userConnected.role == 'Attache'"  class="flex items-center space-x-6">
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="">Home</a></li>
+           
+            <li>
+            <!-- <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="/planSession">Planification Sessions</a></li> -->
+           
+            <li class="font-semibold text-gray-700" style="color: rgb(124, 185, 124);cursor: pointer;"><a
+                    routerLink="/login">Deconnexion</a></li>
+            <li>
+        </ul>
+
+    </div>
+</nav>

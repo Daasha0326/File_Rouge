@@ -1,0 +1,56 @@
+<main class=" h-full py-6 bg-gray-50 flex items-center justify-center flex-wrap ">
+    <div *ngFor="let sess of sessions" style="width: 20%;"
+        class="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
+
+        <p class="text-xl font-semibold my-2">Professeurs: {{sess.annclasse_cour.cour.professeur.nom+ "
+            "+sess.annclasse_cour.cour.professeur.prenom}}</p>
+        <p class="text-xl font-semibold my-2">Module: {{sess.annclasse_cour.cour.module.libelle}}</p>
+        <p class="text-xl font-semibold my-2">
+            Classe:
+            <span *ngFor="let cls of sess.annclasse_cour.cour.classe">{{cls.classe.libelle}} ,</span>
+        </p>
+        <p class="text-xl font-semibold my-2">Date: {{sess.date}}</p>
+        <p class="text-xl font-semibold my-2">Debut: {{sess.debut}}</p>
+        <p class="text-xl font-semibold my-2">Fin: {{sess.fin}}</p>
+
+        <div class="border-t-2"></div>
+        <div class="flex justify-center">
+            <button
+            (click)="modal(sess)"  class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-green-400 rounded-md hover:bg-green-500 focus:outline-none focus:bg-gray-600">Demande</button>
+
+        </div>
+    </div>
+    <div *ngIf="openModal"
+        class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
+        id="modal-id">
+        <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
+        <div class="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+
+            <div class="">
+
+                <div class=" p-5 flex-auto justify-center" style="color: rgb(121, 186, 121);">
+
+
+                    <h2 class="text-xl font-bold py-4 " style="color: rgb(121, 186, 121);font-weight: bold;">Veillez saisir le motif de la demande d'annulation
+                    </h2>
+                    <div>
+                        <label class="text-dark dark:text-gray-200" for=""
+                            style="font-weight: bold;font-size: 1.1em;">Motif</label>
+                        <input id="" type="text"
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+                </div>
+
+                <div class="p-3  mt-2 text-center space-x-4 md:block">
+                    <button (click)="closeModal()"
+                        class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
+                        Cancel
+                    </button>
+                    <button
+                        class="mb-2 md:mb-0 bg-red-500 border border-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg "
+                        style="background-color: rgb(121, 186, 121);">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

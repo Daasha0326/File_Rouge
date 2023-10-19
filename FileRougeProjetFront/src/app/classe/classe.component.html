@@ -1,0 +1,105 @@
+<link
+    href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet">
+<div class="flex flex-col  items-center justify-center w-[100em] bg-white-900 p-8 shadow-lg" style="margin-left: 9em;">
+
+    <div class="col-span-12 w-10/12 ">
+        <div class="overflow-auto lg:overflow-visible w-full">
+            <div>
+                <h1 class="flex flex-col  items-center justify-center" style="color: rgb(121, 186, 121);">Liste des
+                    classes</h1>
+            </div>
+            <table class="table text-white border-separate space-y-6 text-sm  w-full">
+                <thead class="bg-white-800" style="color: rgb(121, 186, 121);">
+                    <tr>
+                        <th class="p-3 text-left">Noms</th>
+                        <th class="p-3 text-left">Effectifs</th>
+                        <th class="p-3 text-left">Niveaux</th>
+                        <th class="p-3 text-left">Filieres</th>
+                        <th class="p-3 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let clas of classes" class="bg-white-800 shadow-lg" style="color: rgb(121, 186, 121);">
+
+                        <td class="p-3">{{clas.libelle}}</td>
+                        <td class="p-3 ">{{clas.effectif}}</td>
+                        <td class="p-3">{{clas.niveau_id}}</td>
+                        <!-- <td class="p-3">{{prods.succursale[0] ? prods.succursale[0].pivot.prixU : "Null"}}</td> -->
+                        <td class="p-3">{{clas.niveau_id}}</td>
+                        <td class="p-3 flex">
+
+                            <div style="cursor: pointer;" class="text-gray-400 hover:text-gray-100  mx-2">
+                                <i class="material-icons-outlined text-base" (click)="modal(clas)">edit</i>
+                            </div>
+                            <div style="cursor: pointer;" class="text-gray-400 hover:text-gray-100  ml-2">
+                                <i class="material-icons-round text-base">delete_outline</i>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" /> -->
+
+
+    <div *ngIf="openModal" class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"
+        id="modal-id">
+        <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
+        <div class="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+
+            <div class="">
+
+                <div class=" p-5 flex-auto justify-center" style="color: rgb(121, 186, 121);">
+
+
+                    <h2 class="text-xl font-bold py-4 " style="color: rgb(121, 186, 121);font-weight: bold;">Bienvenu
+                        sur la page d'inscription</h2>
+                    <div>
+                        <label class="text-dark dark:text-gray-200" for=""
+                            style="font-weight: bold;font-size: 1.1em;">Fichiers</label>
+                        <input id="" type="file" 
+                            class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+                </div>
+
+                <div class="p-3  mt-2 text-center space-x-4 md:block">
+                    <button
+                        (click)="closeModal()" class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
+                        Annuler
+                    </button>
+                    <button
+                        class="mb-2 md:mb-0 bg-red-500 border border-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg "
+                        style="background-color: rgb(121, 186, 121);">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .table {
+        border-spacing: 0 15px;
+    }
+
+    i {
+        font-size: 1rem !important;
+    }
+
+    .table tr {
+        border-radius: 20px;
+    }
+
+    /* tr td:nth-child(n+5),
+	tr th:nth-child(n+5) {
+		border-radius: 0 .625rem .625rem 0;
+	}
+
+	tr td:nth-child(1),
+	tr th:nth-child(1) {
+		border-radius: .625rem 0 0 .625rem;
+	} */
+</style>

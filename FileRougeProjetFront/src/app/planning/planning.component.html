@@ -1,0 +1,74 @@
+<link
+	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+	rel="stylesheet">
+<div class="flex flex-col  items-center justify-center w-[100em] bg-white-900 p-8 shadow-lg" style="margin-left: 9em;">
+	
+	<div class="col-span-12 w-10/12 ">
+		<div class="overflow-auto lg:overflow-visible w-full">
+			<table class="table text-white border-separate space-y-6 text-sm  w-full">
+				<thead class="bg-white-800" style="color: rgb(121, 186, 121);">
+					<tr>
+						<th class="p-3 text-left">Professeurs</th>
+						<th class="p-3 text-left">Modules</th>
+						<th class="p-3 text-left">Heure Globale</th>
+						<th class="p-3 text-left">Classes</th>
+						<th class="p-3 text-left">Etat</th>
+						<th class="p-3 text-left">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let cour of cours" class="bg-white-800 shadow-lg" style="color: rgb(121, 186, 121);" >
+
+						<td class="p-3">{{cour.professeur.prenom + " " + cour.professeur.nom}}</td>
+						<td class="p-3 ">{{cour.module.libelle}}</td>
+						<td class="p-3">{{cour.HeureGlobal}}</td>
+						<td >
+							<span *ngFor="let clas of cour.classe">{{clas.classe.libelle}} ,</span>
+						</td>
+						<td class="p-3">{{cour.etat}}</td>
+						<td class="p-3 flex">
+
+							<div style="cursor: pointer;" class="text-gray-400 hover:text-gray-100  mx-2">
+								<i class="material-icons-outlined text-base">edit</i>
+							</div>
+							<div style="cursor: pointer;" class="text-gray-400 hover:text-gray-100  ml-2">
+								<i class="material-icons-round text-base" (click)="delete(cour.id)">delete_outline</i>
+							</div>
+							
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<button 
+		class="block text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+		type="button" style="background-color: rgb(121, 189, 121);"><a routerLink="/cours">Ajouter un cours</a>
+		
+	</button>
+</div>
+
+<style>
+	.table {
+		border-spacing: 0 15px;
+	}
+
+	i {
+		font-size: 1rem !important;
+	}
+
+	.table tr {
+		border-radius: 20px;
+	}
+
+	/* tr td:nth-child(n+5),
+	tr th:nth-child(n+5) {
+		border-radius: 0 .625rem .625rem 0;
+	}
+
+	tr td:nth-child(1),
+	tr th:nth-child(1) {
+		border-radius: .625rem 0 0 .625rem;
+	} */
+</style>
